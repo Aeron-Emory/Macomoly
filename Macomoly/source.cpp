@@ -1,10 +1,7 @@
-#include <iostream>
-#include <string>
-#include <random>
+#include "Manager.h"
 
 struct player;
 struct spot;
-using namespace std;
 
 int diceRoll();
 
