@@ -134,12 +134,64 @@ void Manager::CheckPos()
 	}
 }
 
-void Manager::DiceRoll()
+void Manager::DiceRoll(int& dice1, int& dice2)
 {
-	int dice1, dice2;
 	dice1 = rand() % 6 + 1;
 	dice2 = rand() % 6 + 1;
 	cout << "You rolled a " << dice1 << " and a " << dice2 << "!" << endl;
-	playerList[currentPlayer].updatePos(dice1 + dice2);
 	CheckPos();
+}
+
+void Manager::DoTurn()
+{
+	int dice1, dice2;
+	if (playerList[currentPlayer].jailStatus())
+	{
+		cout << "You are in Jail!" << endl;
+		waitForEnter();
+	}
+	else
+	{
+		DiceRoll(dice1, dice2);
+		if (CheckDouble(dice1, dice2))
+		{
+			cout << "You rolled a double! Roll again!" << endl;
+			waitForEnter();
+			DiceRoll(dice1, dice2);
+			playerList[currentPlayer].updatePos(dice1 + dice2);
+			if (CheckDouble(dice1, dice2))
+			{
+				cout << "You rolled a double again! Roll again!" << endl;
+				waitForEnter();
+				DiceRoll(dice1, dice2);
+				playerList[currentPlayer].updatePos(dice1 + dice2);
+				if (CheckDouble(dice1, dice2))
+				{
+					cout << "You rolled a double again! Go to Jail!" << endl;
+					playerList[currentPlayer].updatePos(10);
+					playerList[currentPlayer].setJail(true);
+				}
+			}
+		}
+		playerList[currentPlayer].updatePos(dice1 + dice2);
+	}
+}
+
+bool Manager::CheckDouble(int dice1, int dice2)
+{
+	if (dice1 == dice2)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void Manager::waitForEnter()
+{
+	cout << "Press Enter to continue...";
+	cin.ignore();
+	cin.get();
 }

@@ -22,3 +22,8 @@ void Player::setJail(bool jail)
 {
 	inJail = jail;
 }
+
+bool Player::jailStatus() const
+{
+	return inJail;
+}

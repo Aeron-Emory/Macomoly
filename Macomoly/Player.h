@@ -14,5 +14,6 @@ public:
 	void addProperty(Property p);
 	void removeProperty(Property p);
 	void setJail(bool jail);
+	bool jailStatus() const;
 };
 

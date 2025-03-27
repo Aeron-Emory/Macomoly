@@ -9,8 +9,9 @@ private:
 public:
 	Manager(int totalPlayer);
 	void CheckPos();
-	void DiceRoll();
-	bool CheckDouble();
+	void DiceRoll(int&, int&);
+	void DoTurn();
+	bool CheckDouble(int, int);
 	void UpdatePlayer();
 	void MovePlayer();
 	void SpotAction();
