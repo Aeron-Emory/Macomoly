@@ -1,11 +1,13 @@
 #include "Player.h"
 
-Player::Player()
+Player::Player(string n)
 {
 	isBankrupt = false;
 	Money = 0;
 	spot = 0;
 	inJail = false;
+	name = n;
+	getOutOfGo = 0;
 }
 
 int Player::getPos() const

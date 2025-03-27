@@ -8,6 +8,7 @@ private:
 	Property propertyList[40];
 public:
 	Manager(int totalPlayer);
+	void playerSetup();
 	void CheckPos();
 	void DiceRoll(int&, int&);
 	void DoTurn();

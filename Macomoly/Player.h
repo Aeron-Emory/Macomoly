@@ -5,9 +5,10 @@ class Player
 private:
 	bool isBankrupt, inJail;
 	int Money, spot, getOutOfGo;
+	string name;
 	vector<Property> properties;
 public:
-	Player();
+	Player(string name);
 	int getPos() const;
 	void updatePos(int newPos);
 	void setBankrupt();

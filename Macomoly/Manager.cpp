@@ -6,6 +6,17 @@ Manager::Manager(int TP)
 	currentPlayer = 0;
 }
 
+void Manager::playerSetup()
+{
+	string name;
+	for (int i = 0; i < totalPlayer; i++)
+	{
+		cout << "Enter player " << i + 1 << "'s name: ";
+		cin >> name;
+		playerList.push_back(Player(name));
+	}
+}
+
 void Manager::CheckPos()
 {
 	switch (playerList[currentPlayer].getPos())
@@ -149,6 +160,13 @@ void Manager::DoTurn()
 	{
 		cout << "You are in Jail!" << endl;
 		waitForEnter();
+		DiceRoll(dice1, dice2);
+		if (CheckDouble(dice1, dice2))
+		{
+			cout << "You rolled a double! You are free!" << endl;
+			playerList[currentPlayer].setJail(false);
+			playerList[currentPlayer].updatePos(dice1 + dice2);
+		}
 	}
 	else
 	{
