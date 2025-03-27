@@ -29,3 +29,20 @@ bool Player::jailStatus() const
 {
 	return inJail;
 }
+
+void setBankrupt()
+{
+	return;
+}
+
+void addProperty(Property p)
+{
+	return;
+
+}
+
+void removeProperty(Property p)
+{
+	return;
+
+}

@@ -1,5 +1,5 @@
 #include "Property.h"
-#pragma once
+
 class Player
 {
 private:
@@ -7,6 +7,7 @@ private:
 	int Money, spot, getOutOfGo;
 	string name;
 	vector<Property> properties;
+
 public:
 	Player(string name);
 	int getPos() const;
