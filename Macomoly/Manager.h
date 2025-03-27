@@ -7,7 +7,7 @@ private:
 	vector<Player> playerList;
 	Property propertyList[40];
 public:
-	Manager(int);
+	Manager(int totalPlayer);
 	void CheckPos();
 	void DiceRoll();
 	bool CheckDouble();
@@ -16,5 +16,6 @@ public:
 	void SpotAction();
 	void CheckBankrupt();
 	void CurrentPlayerOption();
+	void waitForEnter();
 };
 

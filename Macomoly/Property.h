@@ -2,6 +2,7 @@
 #include <string>
 #include <random>
 #include <vector>
+#include <random>
 using namespace std;
 #pragma once
 class Property

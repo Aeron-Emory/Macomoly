@@ -42,6 +42,7 @@ void Manager::CheckPos()
 		break;
 	case 10:
 		cout << "You are on Jail!" << endl;
+		playerList[currentPlayer].setJail(true);
 		break;
 	case 11:
 		cout << "You are on St. Charles Place!" << endl;
@@ -131,4 +132,14 @@ void Manager::CheckPos()
 		cout << "You are on Boardwalk!" << endl;
 		break;
 	}
+}
+
+void Manager::DiceRoll()
+{
+	int dice1, dice2;
+	dice1 = rand() % 6 + 1;
+	dice2 = rand() % 6 + 1;
+	cout << "You rolled a " << dice1 << " and a " << dice2 << "!" << endl;
+	playerList[currentPlayer].updatePos(dice1 + dice2);
+	CheckPos();
 }
