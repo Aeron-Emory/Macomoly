@@ -1,5 +1,4 @@
 #include "Manager.h"
-
 struct player;
 struct spot;
 

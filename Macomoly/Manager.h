@@ -3,11 +3,11 @@
 class Manager
 {
 private:
-	int currentPlayer;
+	int currentPlayer, totalPlayer;
 	vector<Player> playerList;
 	Property propertyList[40];
 public:
-	Manager();
+	Manager(int);
 	void CheckPos();
 	void DiceRoll();
 	bool CheckDouble();

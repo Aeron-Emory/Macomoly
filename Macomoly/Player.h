@@ -8,5 +8,6 @@ private:
 	vector<Property> properties;
 public:
 	Player();
+	int getPos() const;
 };
 
