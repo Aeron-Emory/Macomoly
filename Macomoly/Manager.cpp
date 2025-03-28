@@ -23,6 +23,7 @@ void Manager::CheckPos()
 	{
 	case 0:
 		cout << "You are on Go!" << endl;
+		playerList[currentPlayer].addMoney(200);
 		break;
 	case 1:
 		cout << "You are on Mediterranean Avenue!" << endl;

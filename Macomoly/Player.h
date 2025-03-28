@@ -17,5 +17,6 @@ public:
 	void removeProperty(Property p);
 	void setJail(bool jail);
 	bool jailStatus() const;
+	void addMoney(int amount);
 };
 

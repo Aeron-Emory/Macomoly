@@ -30,6 +30,11 @@ bool Player::jailStatus() const
 	return inJail;
 }
 
+void Player::addMoney(int amount)
+{
+	Money += amount;
+}
+
 void setBankrupt()
 {
 	return;
