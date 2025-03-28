@@ -53,7 +53,6 @@ void Manager::CheckPos()
 		break;
 	case 10:
 		cout << "You are on Jail!" << endl;
-		playerList[currentPlayer].setJail(true);
 		break;
 	case 11:
 		cout << "You are on St. Charles Place!" << endl;
@@ -167,17 +166,24 @@ void Manager::DoTurn()
 			playerList[currentPlayer].setJail(false);
 			playerList[currentPlayer].updatePos(dice1 + dice2);
 		}
+		else
+		{
+			cout << "You did not roll a double! You are still in Jail!" << endl;
+		}
 	}
 	else
 	{
 		DiceRoll(dice1, dice2);
-		if (CheckDouble(dice1, dice2))
+		playerList[currentPlayer].updatePos(dice1 + dice2);
+		CheckPos();
+		if (CheckDouble(dice1, dice2) && playerList[currentPlayer].jailStatus() == false)
 		{
 			cout << "You rolled a double! Roll again!" << endl;
 			waitForEnter();
 			DiceRoll(dice1, dice2);
 			playerList[currentPlayer].updatePos(dice1 + dice2);
-			if (CheckDouble(dice1, dice2))
+			CheckPos();
+			if (CheckDouble(dice1, dice2) && playerList[currentPlayer].jailStatus() == false)
 			{
 				cout << "You rolled a double again! Roll again!" << endl;
 				waitForEnter();
@@ -188,11 +194,13 @@ void Manager::DoTurn()
 					cout << "You rolled a double again! Go to Jail!" << endl;
 					playerList[currentPlayer].updatePos(10);
 					playerList[currentPlayer].setJail(true);
+					CheckPos();
 				}
+				CheckPos();
 			}
 		}
-		playerList[currentPlayer].updatePos(dice1 + dice2);
 	}
+	currentPlayer++;
 }
 
 bool Manager::CheckDouble(int dice1, int dice2)
